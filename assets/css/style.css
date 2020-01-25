@@ -201,6 +201,18 @@ main {
     }
 
     #restart-btn, #high-btn {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
+    }
+
+    .c-label {
+        font-size: .6rem;
+        margin-bottom: 4px;
+    }
+    
+    .c-element {
+        font-size: 1.1rem;
+    }
+    #next-btn {
+        font-size: 1rem;
     }
 }
