@@ -9,45 +9,33 @@
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <title>Document</title>
+    <title>Javascript Quiz</title>
 </head>
 
 <body>
     <header class="header">
         <nav class="nav-container">
             <h1><span class="js-logo">Javascript</span>Quiz</h1>
-            <button id="restart"><i class="fas fa-redo"></i> Restart</button>
+            <div>
+                <button id="high-btn">High Score</button>
+                <button id="restart-btn"><i class="fas fa-redo"></i> Restart</button>
+            </div>
         </nav>
     </header>
 
     <main>
-        <div class="container">
-            <div class="top-span">
-                <div class="left-box">
-                    <p class="box-titles">Score</p>
-                    <p><span id="score">0</span>/10</p>
-                </div>
-                <div class="right-box">
-                    <p class="box-titles">Time</p>
-                    <p><span id="t-remain">0:00</span></p>
-                </div>
+        <div class="grid-container">
+            <span id="result">Correct!</span>
+            <span id="question">Commonly used data types DO NOT include:</span>
+            <div class="btm-left">
+                <p>time: 0:00</p>
+                <p>score 0/10</p>
             </div>
-            <div class="middle-span">
-                <span id="question">The condition in an if / else statement is enclosed within ____.</span>
-                <ul id="choices">
-                    <li>Qoutes</li>
-                    <li>Curley Brakets</li>
-                    <li>parentheses</li>
-                    <li>square brackets</li>
-            </div>
-            <div class="bottom-span">
-                <h2>CORRECT</h2>
-            </div>
-            <div class="footer">
-                <p>Devloped by <a href="https://yeasir01.github.io/professional-portfolio/">Yeasir H.</a></p>
-            </div>
+            <span id="a1" class="awswer-box">Strings</span>
+            <span id="a2" class="awswer-box">Booleans</span>
+            <span id="a3" class="awswer-box">Alerts</span>
+            <span id="a4" class="awswer-box">Numbers</span>
         </div>
-
     </main>
 
     <script src="./assets/js/questions.js"></script>
