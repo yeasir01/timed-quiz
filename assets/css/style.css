@@ -1,9 +1,7 @@
 body {
-    line-height: 1;
     background-color: #a8d0e6;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
-    position: relative;
 }
 
 .header {
@@ -33,7 +31,7 @@ main {
     font-weight: 400;
 }
 
-.nav-container h1 {
+.js-logo span {
     color: #ffbe55;
 }
 
@@ -48,6 +46,7 @@ main {
 
 #restart-btn {
     background-color: #f76c6c;
+    text-decoration: none;
     border: none;
     color: #fff;
     font-size: 0.9rem;
@@ -55,15 +54,10 @@ main {
     cursor: pointer;
 }
 
-#restart-btn:hover {
-    background-color: #fa5656;
-    cursor: pointer;
-}
-
 .grid-container {
     width: 80%;
+    margin: auto;
     max-width: 960px;
-    margin: 30px auto;
     box-shadow: 0 0px 10px 0 rgba(32, 33, 36, 0.28);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -95,7 +89,7 @@ main {
     font-size: 4rem;
 }
 
-.triv-span {
+.start-game h1 span {
     color: white;
 }
 
@@ -110,18 +104,18 @@ main {
     cursor: pointer;
 }
 
-#result {
+#bar-container {
     grid-area: r;
-    height: 90px;
-    font-size: 3rem;
+    height: 10px;
+    background-color: #ededed;
+    overflow: hidden;
+    
 }
 
-.wrong {
-    color: #e74c3c;
-}
-
-.correct {
-    color: #27ae60;
+.load-bar {
+    height: 100%;
+    background-color: #27ae60;
+    width: 100%;
 }
 
 #question {
@@ -148,8 +142,7 @@ main {
     grid-area: a4;
 }
 
-.awswer-box,
-#result {
+.awswer-box {
     background-color: #fff;
     border: none;
     border-bottom: 1px solid #d6d6d6;
@@ -176,10 +169,6 @@ main {
 }
 
 .count {
-    text-align: center;
-}
-
-.c-element {
     font-size: 2.5rem;
 }
 
@@ -191,11 +180,6 @@ main {
     font-size: 1.2rem;
     padding: 7px 10px;
     cursor: pointer;
-}
-
-#next-btn:hover {
-    color: #fa5656;
-    border: 1px solid #fa5656;
 }
 
 
@@ -225,9 +209,6 @@ main {
 @media only screen and (max-width: 568px) {
     .nav-container {
         width: 95vw;
-    }
-
-    .nav-container {
         font-size: 1.50rem;
     }
 
@@ -248,23 +229,12 @@ main {
         font-size: 0.75rem;
     }
 
-    #result {
-        font-size: 2.2rem;
-        height: 50px;
-    }
-
-    .c-element {
+    .count {
         font-size: 1.5rem;
     }
 
     #next-btn {
         font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 425px) {
-    #result {
-        font-size: 1.6rem;
     }
 }
 
