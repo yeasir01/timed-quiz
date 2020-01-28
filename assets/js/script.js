@@ -4,6 +4,10 @@ const gameWindowEl = document.getElementById('game-panel');
 const scoreHeadEl = document.getElementById('score-head');
 const scoreMessageEl = document.getElementById('score-message');
 const scorePanelEl = document.getElementById('score-panel');
+const scoreBordEl = document.getElementById('score-board');
+const correctOutputEl = document.getElementById('correct-output');
+const wrongOutputEl = document.getElementById('wrong-output');
+const scoreOutputEl = document.getElementById('score-output');
 const imageContainerEL = document.getElementById('img-container')
 const loadBarEl = document.getElementById('load-bar');
 const questionEl = document.getElementById('question');
@@ -24,7 +28,7 @@ var loadProgress = 100 / timeLimit; //calculates how much to decrement progress 
 
 var currentQuestionIndex = 0; //Index of current question
 var lastQuestionIndex = questions.length - 1; //Gets the ID of the last questions index in array
-var count = timeLimit; //sets count - intial time from timeLimit
+var count = timeLimit; //sets count to intial time from timeLimit
 var incorrectScore = 0; //set inital value of incorrect answer count
 var correctScore = 0; //set inital value of correct answer count
 var penalty = 15 //time penalty for wrong awnser
@@ -52,6 +56,9 @@ function countDown() {
       timerEl.textContent = 0;
       loadBarEl.style.width = "0%";
       outOfTime()
+    } else if (currentQuestionIndex === questions.length) {
+      scoreMessage()
+      clearInterval(timerInterval);
     }
 
   }, 1000);
@@ -90,12 +97,22 @@ function skipQ() {
 }
 
 function outOfTime() {
-  gameWindowEl.className += ' ' + 'hide';   //takes exsisting classes + adds [space + "hide"]
-  scorePanelEl.classList.remove('hide');   //removes ["hide"] from class scorePanelEL element
-  imageContainerEL.innerHTML = '<img src="./assets/images/sad-dog.png" alt="">'; //inserts sad dog image
+  gameWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
+  scorePanelEl.classList.remove('hide'); //removes ["hide"] from class scorePanelEL element
+  imageContainerEL.innerHTML = '<img src="./assets/images/sad-dog.png" alt="a sad dog" class="dog-img">'; //inserts sad dog image
   scoreHeadEl.textContent = 'Sorry out of time'; //Heading message display
-  scoreMessageEl.textContent = 'maybe? better luck next time...';  //message display
+  scoreMessageEl.textContent = 'Better luck next time...'; //message display
 }
 
-
-//set timeout
+function scoreMessage() {
+  gameWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
+  scorePanelEl.classList.remove('hide'); //removes ["hide"] from class scorePanelEL element
+  scoreBordEl.classList.remove('hide');
+  imageContainerEL.innerHTML = '<img src="./assets/images/happy-dog.png" alt="a happy dog" class="dog-img">'; //inserts happy dog image
+  scoreHeadEl.textContent = 'Congratulation!'; //Heading message display
+  scoreMessageEl.textContent = 'You\'ve made it to the end'; //message display
+  var finalScore = (qCount * correctScore) * count;
+  correctOutputEl.textContent = correctScore;
+  wrongOutputEl.textContent = incorrectScore;
+  scoreOutputEl.textContent = finalScore;
+}
