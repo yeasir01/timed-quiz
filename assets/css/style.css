@@ -2,6 +2,7 @@ body {
     background-color: #a8d0e6;
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
+    line-height: 1.5;
 }
 
 main {
@@ -94,6 +95,10 @@ main {
     color: white;
 }
 
+.inst-container {
+    max-width: 60%;
+}
+
 #start-btn {
     background-color: #fff;
     color: #24305e;
@@ -161,14 +166,6 @@ main {
     cursor: pointer;
 }
 
-/*
-.awswer-box:hover {
-    background-color: #ffbe55;
-    color: #fff;
-    cursor: pointer;
-}
-*/
-
 .btm-left {
     grid-area: btm;
     background-color: #303e77;
@@ -195,14 +192,22 @@ main {
 }
 
 .img-container {
-    max-width: 200px;
-    max-height: 200px;
+    width: 200px;
+    height: 200px;
 }
 
-.img-container img {
-    width: 100%;
+.dog-img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
+#score-board p {
+    color: #ffbe55;
+}
+
+#score-board span {
+    color: white;
+}
 
 @media only screen and (max-width: 720px) {
     .grid-container {
@@ -228,6 +233,12 @@ main {
     }
 }
 
+@media only screen and (max-width: 700px) {
+    #score-head {
+        font-size: 1.85rem;
+    }
+}
+
 @media only screen and (max-width: 568px) {
     .nav-container {
         width: 95vw;
@@ -240,6 +251,10 @@ main {
 
     .board h1 {
         font-size: 3rem;
+    }
+
+    .inst-container {
+        max-width: 75%;
     }
 
     #start-btn {
@@ -264,14 +279,8 @@ main {
     }
 
     .img-container {
-        max-width: 150px;
-        max-height: 150px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    #score-head {
-        font-size: 1.85rem;
+        width: 150px;
+        height: 150px;
     }
 }
 

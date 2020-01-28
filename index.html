@@ -27,10 +27,13 @@
         <div class="board" id="start-panel">
             <h1>Trivia<span>Quiz</span></h1>
             <br>
-            <p>A timed quiz designed to test your knowledge. </p>
-            <p>Final score is based on time remaining. Answer correctly</p>
-            <p>& move forward without penalty, answer wrong or skip and </p>
-            <p>lose 15 seconds.</p>
+            <div class="inst-container">
+                <p>A timed trivia quiz designed to test your knowledge.
+                    Final score is based on time remaining + correct answers. Answer each question correctly
+                    & move forward without penalty, answer wrong or skip and
+                    lose 15 seconds. Good Luck!
+                </p>
+            </div>
             <br>
             <button id="start-btn">Start</button>
         </div>
@@ -41,9 +44,7 @@
             <div id="bar-container">
                 <div id="load-bar" class="load-bar"></div>
             </div>
-            <span id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore animi eum porro illum
-                eos accusamus eaque, dolorum explicabo nobis ipsam impedit molestias neque doloribus eius, nesciunt
-                eligendi nisi et nam?</span>
+            <span id="question"></span>
             <div class="btm-left">
                 <div class="count">
                     <span id="score" class="score">0</span>
@@ -52,18 +53,22 @@
                 </div>
                 <button id="next-btn">Skip <i class="fas fa-arrow-circle-right"></i></button>
             </div>
-            <span id="a" class="awswer-box" onclick="checkAnswer('a')">Strings</span>
-            <span id="b" class="awswer-box" onclick="checkAnswer('b')">Booleans</span>
-            <span id="c" class="awswer-box" onclick="checkAnswer('c')">Alerts</span>
-            <span id="d" class="awswer-box" onclick="checkAnswer('d')">Numbers</span>
+            <span id="a" class="awswer-box" onclick="checkAnswer('a')"></span>
+            <span id="b" class="awswer-box" onclick="checkAnswer('b')"></span>
+            <span id="c" class="awswer-box" onclick="checkAnswer('c')"></span>
+            <span id="d" class="awswer-box" onclick="checkAnswer('d')"></span>
         </div>
         <div class="board hide" id="score-panel">
             <div class="img-container" id="img-container">
-    
+
             </div>
             <h1 id="score-head"></h1>
             <span id="score-message"></span>
-
+            <div id="score-board" class="score-board hide">
+                <br>
+                <p>Correct: <span id="correct-output"></span>  | Wrong: <span id="wrong-output"></span></p>
+                <p>Your Score: <span id="score-output"></span></p>
+            </div>
         </div>
     </main>
 
