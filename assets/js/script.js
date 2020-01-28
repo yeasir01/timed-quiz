@@ -4,6 +4,7 @@ const gameWindowEl = document.getElementById('game-panel');
 const scoreHeadEl = document.getElementById('score-head');
 const scoreMessageEl = document.getElementById('score-message');
 const scorePanelEl = document.getElementById('score-panel');
+const imageContainerEL = document.getElementById('img-container')
 const loadBarEl = document.getElementById('load-bar');
 const questionEl = document.getElementById('question');
 const timerEl = document.getElementById('timer');
@@ -17,7 +18,7 @@ const startEl = document.getElementById('start-btn');
 const highScoreEl = document.getElementById('high-btn');
 const skipEL = document.getElementById('next-btn');
 
-var timeLimit = 75; //<-----Sets the total game duration time in seconds
+var timeLimit = 100; //<-----Sets the total game duration time in seconds
 var qCount = questions.length; //Get the number of questions in the array & intialize
 var loadProgress = 100 / timeLimit; //calculates how much to decrement progress bar width
 
@@ -91,6 +92,10 @@ function skipQ() {
 function outOfTime() {
   gameWindowEl.className += ' ' + 'hide';   //takes exsisting classes + adds [space + "hide"]
   scorePanelEl.classList.remove('hide');   //removes ["hide"] from class scorePanelEL element
+  imageContainerEL.innerHTML = '<img src="./assets/images/sad-dog.png" alt="">'; //inserts sad dog image
   scoreHeadEl.textContent = 'Sorry out of time'; //Heading message display
   scoreMessageEl.textContent = 'maybe? better luck next time...';  //message display
 }
+
+
+//set timeout
