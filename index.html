@@ -32,14 +32,14 @@
             <button id="start-btn">Start</button>
         </div>
         <div class="grid-container hide" id="game-panel">
+            <div class="timer-box">
+                <span id="timer" class="timer"></span>
+            </div>
             <div id="bar-container">
                 <div id="load-bar" class="load-bar"></div>
             </div>
             <span id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore animi eum porro illum eos accusamus eaque, dolorum explicabo nobis ipsam impedit molestias neque doloribus eius, nesciunt eligendi nisi et nam?</span>
             <div class="btm-left">
-                <div class="count">
-                    <span id="timer" class="timer"></span>
-                </div>
                 <div class="count">
                     <span id="score" class="score">0</span>
                     <span>/</span>
@@ -47,11 +47,18 @@
                 </div>
                 <button id="next-btn">Skip <i class="fas fa-arrow-circle-right"></i></button>
             </div>
-            <span id="a1" class="awswer-box">Strings</span>
-            <span id="a2" class="awswer-box">Booleans</span>
-            <span id="a3" class="awswer-box">Alerts</span>
-            <span id="a4" class="awswer-box">Numbers</span>
+            <span id="a" class="awswer-box" onclick="checkAnswer('a')">Strings</span>
+            <span id="b" class="awswer-box" onclick="checkAnswer('b')">Booleans</span>
+            <span id="c" class="awswer-box" onclick="checkAnswer('c')">Alerts</span>
+            <span id="d" class="awswer-box" onclick="checkAnswer('d')">Numbers</span>
         </div>
+        <!-- <div class="score-board" id="score-board">
+            <h1>Trivia<span>Quiz</span></h1>
+            <br>
+            <p>Press start to begin</p>
+            <br>
+            <button id="start-btn">Start</button>
+        </div> -->
     </main>
 
     <script src="./assets/js/questions.js"></script>
