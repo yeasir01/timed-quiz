@@ -4,16 +4,17 @@ body {
     box-sizing: border-box;
 }
 
-.header {
-    background-color: #fff;
-    height: 70px;
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
-}
-
 main {
     min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
+    text-align: center;
+}
+
+.header {
+    background-color: #fff;
+    height: 70px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
 
 .nav-container {
@@ -86,7 +87,7 @@ main {
 
 .board h1 {
     color: #ffbe55;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 .board h1 span {
@@ -157,13 +158,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
+/*
 .awswer-box:hover {
     background-color: #ffbe55;
     color: #fff;
     cursor: pointer;
 }
+*/
 
 .btm-left {
     grid-area: btm;
@@ -188,6 +192,15 @@ main {
     font-size: 1.2rem;
     padding: 7px 10px;
     cursor: pointer;
+}
+
+.img-container {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.img-container img {
+    width: 100%;
 }
 
 
@@ -221,11 +234,11 @@ main {
         font-size: 1.50rem;
     }
 
-    .start-game {
+    .board {
         width: 95vw;
     }
 
-    .start-game h1 {
+    .board h1 {
         font-size: 3rem;
     }
 
@@ -244,6 +257,21 @@ main {
 
     #next-btn {
         font-size: 1rem;
+    }
+
+    #score-head {
+        font-size: 2rem;
+    }
+
+    .img-container {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #score-head {
+        font-size: 1.85rem;
     }
 }
 
