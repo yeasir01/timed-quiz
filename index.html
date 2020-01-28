@@ -18,18 +18,18 @@
             <h1 class="js-logo">Trivia<span>Quiz</span></h1>
             <div>
                 <button id="high-btn">High Score</button>
-                <a id="restart-btn" href="index.html"><i class="fas fa-redo"></i> Restart</a>
+                <a id="restart-btn" href="index.html"><i class="fas fa-redo"></i> Replay</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class="start-game" id="start-panel">
+        <div class="board" id="start-panel">
             <h1>Trivia<span>Quiz</span></h1>
             <br>
-            <p>Press start to begin</p>
+            <p>Press play to begin</p>
             <br>
-            <button id="start-btn">Start</button>
+            <button id="start-btn">Play</button>
         </div>
         <div class="grid-container hide" id="game-panel">
             <div class="timer-box">
@@ -52,13 +52,11 @@
             <span id="c" class="awswer-box" onclick="checkAnswer('c')">Alerts</span>
             <span id="d" class="awswer-box" onclick="checkAnswer('d')">Numbers</span>
         </div>
-        <!-- <div class="score-board" id="score-board">
-            <h1>Trivia<span>Quiz</span></h1>
-            <br>
-            <p>Press start to begin</p>
-            <br>
-            <button id="start-btn">Start</button>
-        </div> -->
+         <div class="board hide" id="score-panel">
+            <h1 id="score-head">Awsome</h1>
+            <span id="score-message">You scored well</span>
+            
+        </div> 
     </main>
 
     <script src="./assets/js/questions.js"></script>
