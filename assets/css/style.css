@@ -58,11 +58,11 @@ main {
     width: 80%;
     margin: auto;
     max-width: 960px;
-    box-shadow: 0 0px 10px 0 rgba(32, 33, 36, 0.28);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 100px 100px 100px 100px;
+    grid-template-rows: auto auto 100px 100px 100px 100px;
     grid-template-areas:
+        "t t"
         "r r"
         "q a1"
         "q a2"
@@ -104,12 +104,20 @@ main {
     cursor: pointer;
 }
 
+.timer-box {
+    grid-area: t;
+    font-size: 1.5rem;
+    color: rgba(48, 62, 119, 0.7);
+    text-align: center;
+    padding: 8px 0;
+}
+
 #bar-container {
     grid-area: r;
     height: 10px;
     background-color: #ededed;
     overflow: hidden;
-    
+
 }
 
 .load-bar {
@@ -126,19 +134,19 @@ main {
     font-size: 1.25rem;
 }
 
-#a1 {
+#a {
     grid-area: a1;
 }
 
-#a2 {
+#b {
     grid-area: a2;
 }
 
-#a3 {
+#c {
     grid-area: a3;
 }
 
-#a4 {
+#d {
     grid-area: a4;
 }
 
@@ -187,8 +195,9 @@ main {
     .grid-container {
         width: 90%;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto repeat(5, 70px);
+        grid-template-rows: auto auto auto repeat(5, 70px);
         grid-template-areas:
+            "t"
             "r"
             "q"
             "a1"
