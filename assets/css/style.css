@@ -70,7 +70,7 @@ main {
         "btm a4";
 }
 
-.start-game {
+.board {
     background-color: #24305e;
     color: #fff;
     width: 80%;
@@ -84,12 +84,12 @@ main {
     justify-content: center;
 }
 
-.start-game h1 {
+.board h1 {
     color: #ffbe55;
     font-size: 4rem;
 }
 
-.start-game h1 span {
+.board h1 span {
     color: white;
 }
 
