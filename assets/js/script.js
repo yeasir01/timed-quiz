@@ -1,6 +1,9 @@
 //Get elements from HTML Document & intialize
 const startWindowEl = document.getElementById('start-panel');
 const gameWindowEl = document.getElementById('game-panel');
+const scoreHeadEl = document.getElementById('score-head');
+const scoreMessageEl = document.getElementById('score-message');
+const scorePanelEl = document.getElementById('score-panel');
 const loadBarEl = document.getElementById('load-bar');
 const questionEl = document.getElementById('question');
 const timerEl = document.getElementById('timer');
@@ -14,7 +17,7 @@ const startEl = document.getElementById('start-btn');
 const highScoreEl = document.getElementById('high-btn');
 const skipEL = document.getElementById('next-btn');
 
-var timeLimit = 150; //<-----Sets the total game duration time in seconds
+var timeLimit = 75; //<-----Sets the total game duration time in seconds
 var qCount = questions.length; //Get the number of questions in the array & intialize
 var loadProgress = 100 / timeLimit; //calculates how much to decrement progress bar width
 
@@ -23,6 +26,7 @@ var lastQuestionIndex = questions.length - 1; //Gets the ID of the last question
 var count = timeLimit; //sets count - intial time from timeLimit
 var incorrectScore = 0; //set inital value of incorrect answer count
 var correctScore = 0; //set inital value of correct answer count
+var penalty = 15 //time penalty for wrong awnser
 
 qCountEl.textContent = qCount; //Sets the total number of questions to the document
 timerEl.textContent = timeLimit; //Sets the inital timer value (before countdown) to the document
@@ -31,10 +35,10 @@ startEl.addEventListener('click', startQuiz) //Executes startQuiz function when 
 skipEL.addEventListener('click', skipQ) //Executes wrong anwser function when skip button is pressed
 
 function startQuiz() {
-  startWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds ['_' + "hide"]
-  gameWindowEl.classList.remove('hide'); //removes ["hide"] from class list
-  countDown();
-  renderQuestion();
+  startWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
+  gameWindowEl.classList.remove('hide'); //removes ["hide"] from class game-window element
+  countDown(); // executes countDown function
+  renderQuestion(); // executes renderQuestion function
 }
 
 function countDown() {
@@ -42,19 +46,22 @@ function countDown() {
     count--;
     timerEl.textContent = count;
     loadBarEl.style.width = count * loadProgress + "%";
-    if (count === 0) {
+    if (count <= 0) {
       clearInterval(timerInterval);
+      timerEl.textContent = 0;
+      loadBarEl.style.width = "0%";
+      outOfTime()
     }
 
   }, 1000);
 }
 
-function renderQuestion() { //function below outputs questions & anwswers from array to HTML document
-  questionEl.textContent = questions[currentQuestionIndex].title;
-  answrOneEl.textContent = questions[currentQuestionIndex].choices[0];
-  answrTwoEl.textContent = questions[currentQuestionIndex].choices[1];
-  answrThreeEl.textContent = questions[currentQuestionIndex].choices[2];
-  answrFourEl.textContent = questions[currentQuestionIndex].choices[3];
+function renderQuestion() {
+  questionEl.textContent = questions[currentQuestionIndex].title; //function outputs questions from array to HTML document
+  answrOneEl.textContent = questions[currentQuestionIndex].choices[0]; //function outputs first answer from array to HTML document
+  answrTwoEl.textContent = questions[currentQuestionIndex].choices[1]; //function outputs second answer from array to HTML document
+  answrThreeEl.textContent = questions[currentQuestionIndex].choices[2]; //function outputs third answer from array to HTML document
+  answrFourEl.textContent = questions[currentQuestionIndex].choices[3]; //function outputs forth answer from array to HTML document
 }
 
 function checkAnswer(selection) {
@@ -66,6 +73,7 @@ function checkAnswer(selection) {
   } else {
     incorrectScore++;
     currentQuestionIndex++;
+    count -= penalty;
     renderQuestion();
   }
 
@@ -74,9 +82,15 @@ function checkAnswer(selection) {
 function skipQ() {
   if (currentQuestionIndex < lastQuestionIndex) {
     incorrectScore++;
+    count -= penalty;
     currentQuestionIndex++;
     renderQuestion();
-  } else {
-    alert('thats all folks')
   }
+}
+
+function outOfTime() {
+  gameWindowEl.className += ' ' + 'hide';   //takes exsisting classes + adds [space + "hide"]
+  scorePanelEl.classList.remove('hide');   //removes ["hide"] from class scorePanelEL element
+  scoreHeadEl.textContent = 'Sorry out of time'; //Heading message display
+  scoreMessageEl.textContent = 'maybe? better luck next time...';  //message display
 }
