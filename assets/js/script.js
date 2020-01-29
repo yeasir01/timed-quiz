@@ -88,7 +88,7 @@ function checkAnswer(selection) {
 }
 
 function skipQ() {
-  if (currentQuestionIndex < lastQuestionIndex) {
+  if (currentQuestionIndex <= lastQuestionIndex) {
     incorrectScore++;
     count -= penalty;
     currentQuestionIndex++;
@@ -111,8 +111,8 @@ function scoreMessage() {
   imageContainerEL.innerHTML = '<img src="./assets/images/happy-dog.png" alt="a happy dog" class="dog-img">'; //inserts happy dog image
   scoreHeadEl.textContent = 'Congratulation!'; //Heading message display
   scoreMessageEl.textContent = 'You\'ve made it to the end'; //message display
-  var finalScore = (qCount * correctScore) * count;
   correctOutputEl.textContent = correctScore;
   wrongOutputEl.textContent = incorrectScore;
+  var finalScore = (qCount * correctScore) * count;
   scoreOutputEl.textContent = finalScore;
 }
