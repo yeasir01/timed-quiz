@@ -31,13 +31,13 @@ var lastQuestionIndex = questions.length - 1; //Gets the ID of the last question
 var count = timeLimit; //sets count to intial time from timeLimit
 var incorrectScore = 0; //set inital value of incorrect answer count
 var correctScore = 0; //set inital value of correct answer count
-var penalty = 15 //time penalty for wrong awnser
+var penalty = 15; //time penalty for wrong awnser
 
 qCountEl.textContent = qCount; //Sets the total number of questions to the document
 timerEl.textContent = timeLimit; //Sets the inital timer value (before countdown) to the document
 
-startEl.addEventListener('click', startQuiz) //Executes startQuiz function when start button is pressed
-skipEL.addEventListener('click', skipQ) //Executes wrong anwser function when skip button is pressed
+startEl.addEventListener('click', startQuiz); //Executes startQuiz function when start is pressed
+skipEL.addEventListener('click', skipQ); //Executes wrong anwser function when skip button is pressed
 
 function startQuiz() {
   startWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
@@ -59,10 +59,10 @@ function countDown() {
     } else if (currentQuestionIndex === questions.length) {
       scoreMessage()
       clearInterval(timerInterval);
-    }
+    };
 
   }, 1000);
-}
+};
 
 function renderQuestion() {
   questionEl.textContent = questions[currentQuestionIndex].title; //function outputs questions from array to HTML document
@@ -70,7 +70,7 @@ function renderQuestion() {
   answrTwoEl.textContent = questions[currentQuestionIndex].choices[1]; //function outputs second answer from array to HTML document
   answrThreeEl.textContent = questions[currentQuestionIndex].choices[2]; //function outputs third answer from array to HTML document
   answrFourEl.textContent = questions[currentQuestionIndex].choices[3]; //function outputs forth answer from array to HTML document
-}
+};
 
 function checkAnswer(selection) {
   if (selection === questions[currentQuestionIndex].answer) {
@@ -83,9 +83,9 @@ function checkAnswer(selection) {
     currentQuestionIndex++;
     count -= penalty;
     renderQuestion();
-  }
+  };
 
-}
+};
 
 function skipQ() {
   if (currentQuestionIndex <= lastQuestionIndex) {
@@ -93,8 +93,8 @@ function skipQ() {
     count -= penalty;
     currentQuestionIndex++;
     renderQuestion();
-  }
-}
+  };
+};
 
 function outOfTime() {
   gameWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
@@ -102,17 +102,26 @@ function outOfTime() {
   imageContainerEL.innerHTML = '<img src="./assets/images/sad-dog.png" alt="a sad dog" class="dog-img">'; //inserts sad dog image
   scoreHeadEl.textContent = 'Sorry out of time'; //Heading message display
   scoreMessageEl.textContent = 'Better luck next time...'; //message display
-}
+};
 
 function scoreMessage() {
   gameWindowEl.className += ' ' + 'hide'; //takes exsisting classes + adds [space + "hide"]
   scorePanelEl.classList.remove('hide'); //removes ["hide"] from class scorePanelEL element
   scoreBordEl.classList.remove('hide');
   imageContainerEL.innerHTML = '<img src="./assets/images/happy-dog.png" alt="a happy dog" class="dog-img">'; //inserts happy dog image
-  scoreHeadEl.textContent = 'Congratulation!'; //Heading message display
+  scoreHeadEl.textContent = 'Congratulations!'; //Heading message display
   scoreMessageEl.textContent = 'You\'ve made it to the end'; //message display
   correctOutputEl.textContent = correctScore;
   wrongOutputEl.textContent = incorrectScore;
   var finalScore = (qCount * correctScore) * count;
   scoreOutputEl.textContent = finalScore;
-}
+};
+
+function highScore(){
+  var score = (qCount * correctScore) * count;
+  if (localStorage.getItem("HighScore") === null){
+    alert('No High Scores To Show');
+  } else if (localStorage.getItem("HighScore") > score){
+    
+  }
+};
